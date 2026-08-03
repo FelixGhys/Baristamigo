@@ -10,12 +10,24 @@ Een statische kloon/redesign van **baristamigo.be** (koffiecatering/baristaservi
 
 | Bestand | Inhoud |
 |---|---|
-| `index.html` | Home — hero, 3 services, video + jumbo tekst, contact-CTA, "Waarom Baristamigo", "Powered by Matubu" |
-| `services.html` | Diensten in detail: baristaservice, koffiecarts, perculators, koffiecocktails |
-| `realisaties.html` | Sfeerbeelden: video's in actie + merkstickers, geen verzonnen klantcases |
-| `contact.html` | Contactformulier |
+| `index.html` | Home — hero, 3 services, video + jumbo tekst, contact-CTA, "Waarom Baristamigo", "Powered by Matubu", WhatsApp-widget |
+| `services.html` | Diensten in detail (baristaservice, koffiecarts, perculators, koffiecocktails) + de echte **Elfsight pricing table** (`services`) |
+| `realisaties.html` | De echte **Elfsight portfolio-widget** (`portfolio`) + eigen video-showcase en merkstickers als aanvulling |
+| `contact.html` | Contactformulier + WhatsApp-widget |
 
-Alle pagina's delen dezelfde nav, footer, newsletter-blok en het "Offerte aanvragen"-modalvenster (2-staps formulier). Foto's en video's zijn hotlinks naar de echte Shopify CDN van `baristamigo.be` (geen lokale kopie nodig, altijd actueel).
+Alle pagina's delen dezelfde nav, footer, newsletter-blok, het "Offerte aanvragen"-modalvenster (2-staps formulier) én de **Elfsight WhatsApp-chatwidget** (rechtsonder, naast de offerte-knop). Foto's en video's zijn hotlinks naar de echte Shopify CDN van `baristamigo.be` (geen lokale kopie nodig, altijd actueel).
+
+## Elfsight-widgets (echte content van baristamigo.be)
+
+De live site gebruikt geen eigen portfolio-/prijzenpagina maar embedt Elfsight-widgets — dat verklaart waarom eerdere fetches van `/pages/services` en `/pages/cases-testimonials` leeg leken: de inhoud wordt door Elfsight's `platform.js` client-side ingeladen, niet in de server-HTML. De widget-snippets zijn door de gebruiker aangeleverd en 1-op-1 overgenomen:
+
+| Widget | App-ID | Gebruikt op |
+|---|---|---|
+| Portfolio | `d3076baa-3ae4-4648-af5c-c4b6dec6e4cb` | `realisaties.html` |
+| Pricing Table | `4ec95a9d-7114-465d-9be2-475d60a9d42e` | `services.html` |
+| WhatsApp Chat | `ae0fd06d-759a-407e-ab45-b056ee390d64` | alle 4 pagina's |
+
+`https://elfsightcdn.com/platform.js` wordt per pagina maar **één keer** geladen (met `async`), ook als er meerdere widgets op dezelfde pagina staan. Zo krijgt `services.html` de échte, actuele prijzen te zien in plaats van door mij verzonnen bedragen.
 
 ## assets/ — gedeelde CSS/JS
 
