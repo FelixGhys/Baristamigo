@@ -1,0 +1,48 @@
+# Wegwijzer — Baristamigo website
+
+Dit document beschrijft wat er in deze map staat en waarom, zodat dit snel terug te vinden is in een volgende sessie.
+
+## Wat is dit
+
+Een statische kloon/redesign van **baristamigo.be** (koffiecatering/baristaservice, "Powered by Matubu Coffee Roasters"). Vier losse HTML-pagina's, gedeelde stijl (crème/maroon/oranje, uppercase nav), geen build-stap nodig — gewoon openen in de browser of hosten als statische site.
+
+## Sitepagina's (root van deze map)
+
+| Bestand | Inhoud |
+|---|---|
+| `index.html` | Home — hero, 3 services, video + jumbo tekst, contact-CTA, "Waarom Baristamigo", "Powered by Matubu" |
+| `services.html` | Diensten in detail: baristaservice, koffiecarts, perculators, koffiecocktails |
+| `realisaties.html` | Sfeerbeelden: video's in actie + merkstickers, geen verzonnen klantcases |
+| `contact.html` | Contactformulier |
+
+Alle pagina's delen dezelfde nav, footer, newsletter-blok en het "Offerte aanvragen"-modalvenster (2-staps formulier). Foto's en video's zijn hotlinks naar de echte Shopify CDN van `baristamigo.be` (geen lokale kopie nodig, altijd actueel).
+
+## fonts/
+
+- `TAYLennon.otf` — het titel-lettertype (var `--font-title`), gebruikt voor koppen/logo-tekst.
+- `Street-PlainRegular.ttf` — "Street" font van Graham Meade (ffonts.net), gebruikt als body-lettertype (var `--font-body`) voor de urban/streetwear uitstraling. Alleen deze ene "Plain"-stijl wordt gebruikt.
+
+**Belangrijk om te weten:** de originele download uit `Downloads/` had door elkaar gehusselde bestandsnamen/extensies (elk bestand claimde een willekeurige extensie t.o.v. de echte inhoud — bv. een `.svg` bleek een PNG, een `.ttf` bleek HTML). Ik heb elk bestand op basis van de echte magic bytes (`file`-commando + interne font-naamtabellen) opnieuw geïdentificeerd en pas daarna hernoemd. Deze twee fontbestanden zijn op die manier bevestigd (TAYLennon via de interne naam "TAY Lennon Regular", Street-Plain via de interne naam "Street - PlainRegular").
+
+## merk/ — brand assets (niet rechtstreeks gebruikt door de site, want die hotlinkt CDN-afbeeldingen)
+
+- `merk/logos/` — `Baristamigo_Logo_Bruin.png`, `Baristamigo_Logo_Geel.png` (wordmark, twee kleurvarianten), `Baristamigo_Element_Bruin.png` / `_Geel.png` (het "B"-beeldmerk/badge), `Baristamigo_Vorm_Bruin.png` (abstracte golf-/blobvorm, decoratief element).
+- `merk/stickers/` — ronde stickers "BARISTAMIGO COFFEE" en "BARISTAMIGO COCKTAILS" elk in bruin en blauw, plus `Sticker_Cocktail_Icoon.png` (los cocktailglas-icoon, gebruikt op `services.html`).
+- `merk/guidelines/` — `Baristamigo_Merkgids.pdf` (19 pagina's) en `Baristamigo_Merkgids_v2.pdf` (eveneens 19 pagina's, andere bytes). **Nog niet geverifieerd of dit twee versies zijn of een dubbele download** — `pdftoppm` ontbrak in deze omgeving om de pagina's te bekijken.
+
+Alle bestanden hierboven zijn visueel gecontroleerd (elke PNG is echt geopend en bekeken) na het herstellen van de juiste extensie — dus deze namen kloppen met de inhoud.
+
+**Ontbrekend:** `Kleuren_Baristamigo.ase` bevatte in werkelijkheid geen kleurenpalet maar een Street-lettertype. Het echte Adobe Swatch Exchange-bestand met de merkkleuren is niet teruggevonden in deze set — de kleuren die nu in de CSS staan (`--maroon: #761E0B`, `--orange: #FF4315`, `--dark-brown: #531003`, `--lavender: #E2C8F3`, crème-tinten) komen uit de al bestaande pagina-CSS, niet uit het .ase-bestand.
+
+## bron-ongebruikt/
+
+Alles wat overbleef na het identificeren van de bovenstaande echte bestanden: 16 extra stijlvarianten van het "Street"-lettertype (compressed, expanded, thin, upper, lined, ...), een aantal `.ai`/`.svg`-vectorbestanden die vermoedelijk dezelfde logo's/stickers bevatten maar niet één voor één geopend zijn, en de ffonts.net-leesmij/installatie-instructies. Veilig te verwijderen, bewaard voor het geval een specifieke Street-stijl ooit alsnog nodig is. Bestandsnamen eindigen op `__ORIG.<echte-extensie>` zodat traceerbaar blijft welk oorspronkelijk (foutief genoemd) bestand het was.
+
+## Live referentie
+
+`https://baristamigo.be` — Shopify-thema, JS-gerenderde content dus niet alles is met een simpele fetch te lezen. Nav-structuur (`/pages/services`, `/pages/cases-testimonials`, `/pages/contact`) is bevestigd; exacte teksten op die pagina's laadden niet in de fetch, dus de copy op `services.html`/`realisaties.html` hier is nieuw geschreven (geen bestaande tekst overgenomen, geen klantnamen/cijfers verzonnen).
+
+## Afspraken voor dit project
+
+- **`fixmijnkoffiemachine/`** (zusmap in `06_Website_Design/`) niet aanraken tenzij expliciet gevraagd — apart Git-repo, apart onderwerp.
+- Wijzigingen aan deze site worden gecommit en gepusht naar de hoofdrepo (`Claude-Code-Rep`, branch `main`) — geen apart GitHub-repo voor Baristamigo tenzij anders gevraagd.
