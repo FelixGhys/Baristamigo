@@ -17,6 +17,18 @@ Een statische kloon/redesign van **baristamigo.be** (koffiecatering/baristaservi
 
 Alle pagina's delen dezelfde nav, footer, newsletter-blok en het "Offerte aanvragen"-modalvenster (2-staps formulier). Foto's en video's zijn hotlinks naar de echte Shopify CDN van `baristamigo.be` (geen lokale kopie nodig, altijd actueel).
 
+## assets/ — gedeelde CSS/JS
+
+- `assets/style.css` — alle styling voor de 4 pagina's, één bestand (geen 4x dezelfde CSS meer gekopieerd).
+- `assets/script.js` — offerte-modal logica + het mobiele hamburgermenu.
+
+**Verbeteringen t.o.v. de eerste versie / t.o.v. de live site:**
+- Echte site typt "Mobile coffee carts & esma stands" (waarschijnlijk een typfout) — hier gecorrigeerd naar "espresso stands".
+- Live site heeft wel een werkend hamburgermenu op mobiel; de eerste versie hier verstopte de nav-links op mobiel zonder alternatief. Nu opgelost met een echte hamburger-toggle (`.nav-toggle` in `assets/script.js`).
+- Account-/winkelwagen-iconen uit de Shopify-header zijn weggelaten: deze statische site heeft geen login/winkelwagen-backend, dus niet-functionele iconen tonen zou misleidend zijn.
+- CSS/JS is uit de 4 losse pagina's gehaald naar `assets/`, zodat een wijziging (bv. kleur, lettertype-pad) nog maar op één plek moet gebeuren.
+- `services.html` en `realisaties.html` bestaan zo op de live site wel qua URL, maar zijn daar (voor zover met een gewone fetch te zien) nog leeg/placeholder — de inhoud hier is dus nieuw geschreven, geen bestaande tekst overgenomen.
+
 ## fonts/
 
 - `TAYLennon.otf` — het titel-lettertype (var `--font-title`), gebruikt voor koppen/logo-tekst.
