@@ -243,9 +243,9 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   align-items: stretch;
 }
 
+.media-content.compact { height: 42svh; }
 .media-content.compact .content { padding: clamp(20px, 3vw, 40px); }
 .media-content.compact .jumbo-text { font-size: clamp(1.3rem, 2.6vw, 2.1rem); }
-.media-content.compact .media { aspect-ratio: 0.563; }
 
 .media-content.dark .media,
 .media-content.cream2 .media { aspect-ratio: 1.775; }
@@ -704,6 +704,7 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
 @media (max-width: 750px) {
   .media-content, .media-content.reverse { flex-direction: column; }
   .media-content .media { min-height: 260px; }
+  .media-content.compact { height: auto; }
   .media-content.compact .media { min-height: 160px; }
   .jumbo-text { text-align: left; }
   .contact-cta-section { justify-content: center; border-radius: 28px; background-size: cover; }
