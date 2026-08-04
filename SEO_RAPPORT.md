@@ -164,7 +164,7 @@ Alle content is **nieuw geschreven** op basis van de bedrijfscontext uit de brie
 2. **WOFF2-conversie van de fonts** (`TAYLennon.otf`, `Street-PlainRegular.ttf`) — ik heb hiervoor geen tooling in deze omgeving. Kan met een online converter of in een sessie met Node/Python.
 3. **Prijzen / prijsformules** — alle FAQ's en dienstpagina's verwijzen naar "vraag een offerte" i.p.v. een concreet bedrag, zoals gevraagd.
 4. **Exacte technische vereisten** (stroom, water, opbouwtijd, capaciteit per opstelling) — nu generiek beantwoord ("neem contact op"), specifieke cijfers ontbreken.
-5. **Volledige oprichtingsverhaal** voor `over-ons.html` — nu een korte, algemene versie; graag de definitieve tekst.
+5. ~~Volledige oprichtingsverhaal voor `over-ons.html`~~ — **opgelost**: Matubu-oprichtingsverhaal (Nathan → Elie & Félix, Vleteren → Dudzele) overgenomen van matubucoffee.be, aangevuld met Félix' toelichting over de groei van Baristamigo (huwelijken, corporate events, Espresso Martini bars, beurzen, meerdaagse pop-ups met horeca-overname).
 6. **1200×630 og:image-template** — er is geen dedicated OG-afbeelding; alle pagina's gebruiken nu het logo als fallback. Een echte 1200×630 template (met foto + logo) zou beter scoren op social shares.
 7. **Homepage-services-rij** linkt nog niet individueel naar de nieuwe dienstpagina's (enkel via het menu/footer/services-hub) — laat weten of dit gewenst is.
 8. **Lighthouse-score op de live site** — run dit zelf zodra gepubliceerd en deel het resultaat.
