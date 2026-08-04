@@ -17,6 +17,21 @@ Een statische kloon/redesign van **baristamigo.be** (koffiecatering/baristaservi
 
 Alle pagina's delen dezelfde nav, footer, newsletter-blok, het "Offerte aanvragen"-modalvenster (2-staps formulier) én de **Elfsight WhatsApp-chatwidget** (rechtsonder, naast de offerte-knop). Foto's en video's zijn hotlinks naar de echte Shopify CDN van `baristamigo.be` (geen lokale kopie nodig, altijd actueel).
 
+## Proporties homepage — herleid uit de echte broncode
+
+Op verzoek van de gebruiker (screenshots klopten niet met de eerste versie) heb ik de ruwe HTML van `baristamigo.be` opgehaald met `curl` (WebFetch geeft alleen een samengevatte tekstversie, geen bruikbare CSS/HTML) en de exacte waarden overgenomen in `assets/style.css`:
+
+| Element | Echte waarde (uit de HTML) | Wat er is aangepast |
+|---|---|---|
+| Hero-sectie | `--section-min-height: 100svh` | Klopte al. |
+| Hero-logo | `--logo-width: 100%` van de sectie (dus zo goed als edge-to-edge, niet `min(94vw, 1160px)`) | Logo nu `width: 100%`, hero `justify-content: flex-start` i.p.v. `center`. |
+| Contact-CTA achtergrond (`Element_1_Baristamigo_4.png`) | class `background-image-fit` (contain, niet cover) | `background-size` van `cover` naar `contain`, positie `left bottom`, `overflow: hidden` op de afgeronde hoek toegevoegd. |
+| Contact-CTA formulier | `--size-style-width: 49%` (desktop), `100%` (mobiel), `--vertical-alignment: center` | Formulier nu `width: 49%` i.p.v. vaste `460px`-kaart; de glazen kaart (frosted card) is weg — de losse velden staan rechtstreeks op de achtergrond, net als op de live site; sectie heeft nu `align-items: center`. |
+| Video "Waarom Baristamigo" + "Powered by Matubu" | `--video-aspect-ratio: 1.775` (16:9), kolom 50vw | Media-kolom gebruikt nu `aspect-ratio: 1.775` i.p.v. een vaste `min-height: 60svh`. |
+| Video bij de jumbo-tekst ("professionele koffiecatering...") | `--video-aspect-ratio: 0.563` (portret, dezelfde video als bij mij: `de775de4...`) | Media-kolom gebruikt nu `aspect-ratio: 0.563` i.p.v. `min-height: 30svh` — dit maakt die sectie merkbaar hoger dan voorheen, maar dat is wat de echte site ook doet. |
+
+Deze waarden staan letterlijk in de HTML van `baristamigo.be` (inline `style="--section-min-height: ..."` en `--video-aspect-ratio: ...` attributen op de Shopify-secties) — dus dit zijn geen schattingen maar overgenomen cijfers. Enige uitzondering: de exacte padding/marges van de "page-width" container kon ik niet uit de HTML halen (die zit in de (niet-opgehaalde) theme-CSS-bundel) — daarvoor gebruik ik nog steeds de 5%-conventie die de rest van de site al hanteert.
+
 ## Elfsight-widgets (echte content van baristamigo.be)
 
 De live site gebruikt geen eigen portfolio-/prijzenpagina maar embedt Elfsight-widgets — dat verklaart waarom eerdere fetches van `/pages/services` en `/pages/cases-testimonials` leeg leken: de inhoud wordt door Elfsight's `platform.js` client-side ingeladen, niet in de server-HTML. De widget-snippets zijn door de gebruiker aangeleverd en 1-op-1 overgenomen:

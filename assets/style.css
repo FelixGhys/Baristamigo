@@ -152,8 +152,8 @@ header {
   min-height: 100svh;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 6vh;
+  justify-content: flex-start;
+  padding: 0 5% 2vh;
   background: #000;
 }
 
@@ -169,7 +169,7 @@ header {
 .hero__logo {
   position: relative;
   z-index: 2;
-  width: min(94vw, 1160px);
+  width: 100%;
 }
 
 /* ───────── SERVICES ROW (home) ───────── */
@@ -197,20 +197,22 @@ header {
 /* ───────── MEDIA + CONTENT (home) ───────── */
 .media-content {
   display: flex;
-  min-height: 60svh;
   align-items: stretch;
 }
 
-.media-content.compact { min-height: 30svh; }
 .media-content.compact .content { padding: clamp(20px, 3vw, 40px); }
 .media-content.compact .jumbo-text { font-size: clamp(1.3rem, 2.6vw, 2.1rem); }
+.media-content.compact .media { aspect-ratio: 0.563; }
+
+.media-content.dark .media,
+.media-content.cream2 .media { aspect-ratio: 1.775; }
 
 .media-content.reverse { flex-direction: row-reverse; }
 
 .media-content .media {
   flex: 1 1 50%;
   position: relative;
-  min-height: 320px;
+  min-height: 220px;
 }
 
 .media-content .media video,
@@ -287,21 +289,18 @@ header {
 
 /* ───────── CONTACT CTA CARD (home) ───────── */
 .contact-cta-section {
-  background: var(--cream) url("https://baristamigo.be/cdn/shop/files/Element_1_Baristamigo_4.png?v=1765485333&width=1920") center/cover no-repeat;
+  background: var(--cream) url("https://baristamigo.be/cdn/shop/files/Element_1_Baristamigo_4.png?v=1765485333&width=1920") left bottom/contain no-repeat;
   border-radius: 52px;
+  overflow: hidden;
   margin: 40px 5%;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  padding: clamp(40px, 8vw, 100px) 5%;
+  padding: max(20px, 6vw) 5%;
 }
 
 .contact-cta-section .contact-form {
-  width: min(100%, 460px);
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(10px);
-  padding: clamp(28px, 4vw, 40px);
-  border-radius: 28px;
-  box-shadow: 0 24px 60px rgba(42,7,2,.22);
+  width: 49%;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -640,5 +639,6 @@ header {
   .media-content .media { min-height: 260px; }
   .media-content.compact .media { min-height: 160px; }
   .jumbo-text { text-align: left; }
-  .contact-cta-section { justify-content: center; border-radius: 28px; }
+  .contact-cta-section { justify-content: center; border-radius: 28px; background-size: cover; }
+  .contact-cta-section .contact-form { width: 100%; }
 }
