@@ -66,6 +66,10 @@ header {
 
 .nav-links { display: flex; gap: 36px; list-style: none; margin: 0 auto; }
 
+@media (min-width: 751px) {
+  .nav-links { transform: translateX(-90px); }
+}
+
 .nav-links a {
   font-family: var(--font-body);
   text-transform: uppercase;
