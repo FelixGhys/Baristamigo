@@ -19,6 +19,7 @@
 :root {
   --cream: #FFFAF7;
   --cream-2: #FFFCF1;
+  --yellow: #F2E6AE;
   --maroon: #761E0B;
   --maroon-dark: #2A0702;
   --orange: #FF4315;
@@ -171,7 +172,7 @@ header {
 .hero__logo {
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: 92%;
 }
 
 /* ───────── TRANSPARANTE HEADER OVER DE HERO (home) ───────── */
@@ -192,13 +193,18 @@ body.page-home header.is-scrolled {
 body.page-home header .header-logo { visibility: hidden; }
 body.page-home header.is-scrolled .header-logo { visibility: visible; }
 
-body.page-home header .nav-links a { color: var(--cream-2); }
+body.page-home header:not(.is-scrolled) .nav-links a {
+  color: var(--yellow);
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 0;
+}
 body.page-home header.is-scrolled .nav-links a { color: var(--maroon); }
 
-body.page-home header .nav-toggle span { background: var(--cream-2); }
+body.page-home header .nav-toggle span { background: var(--yellow); }
 body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
 
-body.page-home header .header__icons svg { stroke: var(--cream-2); }
+body.page-home header .header__icons svg { stroke: var(--yellow); }
 body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
 
 @media (max-width: 750px) {
