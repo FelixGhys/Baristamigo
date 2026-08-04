@@ -64,7 +64,7 @@ header {
 
 .header__row > nav { display: contents; }
 
-.header-logo img { height: 32px; width: auto; }
+.header-logo img { height: 32px; width: auto; aspect-ratio: 5377 / 701; object-fit: contain; }
 
 .nav-links { display: flex; gap: 36px; list-style: none; margin: 0 auto; }
 
@@ -648,7 +648,7 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   color: var(--maroon);
 }
 
-.quote-modal__logo { height: 40px; margin-bottom: 20px; }
+.quote-modal__logo { height: 40px; width: auto; margin-bottom: 20px; aspect-ratio: 5377 / 701; object-fit: contain; }
 .quote-modal__title { font-family: var(--font-title); font-size: 1.2rem; margin-bottom: 24px; }
 .quote-modal__step-label { font-family: var(--font-body); text-transform: uppercase; letter-spacing: .06em; font-size: .7rem; opacity: .6; margin-bottom: 2px; }
 .quote-modal__page-title { font-family: var(--font-body); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; font-size: .95rem; margin-bottom: 12px; }
@@ -803,7 +803,7 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   margin-bottom: 14px;
 }
 
-.footer-col img { height: 30px; margin-bottom: 12px; }
+.footer-col img { height: 30px; width: auto; margin-bottom: 12px; aspect-ratio: 5377 / 701; object-fit: contain; }
 .footer-col p { font-size: .85rem; opacity: .85; max-width: 32ch; }
 
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
