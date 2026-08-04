@@ -1,0 +1,17 @@
+{
+  "name": "Baristamigo",
+  "short_name": "Baristamigo",
+  "description": "Koffiecatering en mobiele koffiebar huren voor events in Vlaanderen.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FFFAF7",
+  "theme_color": "#761E0B",
+  "lang": "nl-BE",
+  "icons": [
+    {
+      "src": "merk/logos/Baristamigo_Element_Bruin.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
