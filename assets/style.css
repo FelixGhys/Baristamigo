@@ -179,6 +179,9 @@ header {
   position: relative;
   z-index: 2;
   width: 92%;
+  height: auto;
+  aspect-ratio: 5377 / 701;
+  object-fit: contain;
 }
 
 /* ───────── TRANSPARANTE HEADER OVER DE HERO (home) ───────── */
