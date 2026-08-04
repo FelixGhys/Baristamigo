@@ -92,4 +92,8 @@ Alles wat overbleef na het identificeren van de bovenstaande echte bestanden: 16
 ## Afspraken voor dit project
 
 - **`fixmijnkoffiemachine/`** (zusmap in `06_Website_Design/`) niet aanraken tenzij expliciet gevraagd — apart Git-repo, apart onderwerp.
-- Wijzigingen aan deze site worden gecommit en gepusht naar de hoofdrepo (`Claude-Code-Rep`, branch `main`) — geen apart GitHub-repo voor Baristamigo tenzij anders gevraagd.
+- Baristamigo heeft een eigen git-repo (`github.com/FelixGhys/Baristamigo`, private, losgekoppeld van de hoofdrepo) — elke wijziging wordt hier gecommit en gepusht naar `main`.
+
+## Gekend probleem: logo-verhouding
+
+Het Baristamigo-wordmark (`Baristamigo_Logo_Bruin.png` / `_Geel.png`, verhouding 5377:701) werd op meerdere plekken (hero, header, footer, offerte-modal) uitgerekt zodra CSS maar één dimensie (`width` of `height`) zette zonder de andere. De HTML `width`/`height`-attributen bleken dit niet altijd correct te compenseren in de browser van de gebruiker. **Fix:** overal waar dit logo gebruikt wordt, expliciet `aspect-ratio: 5377 / 701;` + `object-fit: contain;` toevoegen aan de CSS-regel, niet enkel op de HTML-attributen vertrouwen. Nieuwe plekken waar dit logo gebruikt wordt, moeten dezelfde behandeling krijgen.
