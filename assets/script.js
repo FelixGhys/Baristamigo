@@ -44,3 +44,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Transparante header wordt ondoorzichtig zodra de hero uit beeld scrolt
+(function () {
+  var hero = document.querySelector('.hero');
+  var header = document.querySelector('header');
+  if (!hero || !header) return;
+
+  var toggle = function () {
+    header.classList.toggle('is-scrolled', window.scrollY > hero.offsetHeight - 80);
+  };
+
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+})();

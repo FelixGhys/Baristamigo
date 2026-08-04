@@ -10,12 +10,20 @@ Een statische kloon/redesign van **baristamigo.be** (koffiecatering/baristaservi
 
 | Bestand | Inhoud |
 |---|---|
-| `index.html` | Home — hero, 3 services, video + jumbo tekst, contact-CTA, "Waarom Baristamigo", "Powered by Matubu", WhatsApp-widget |
-| `services.html` | Diensten in detail (baristaservice, koffiecarts, perculators, koffiecocktails) + de echte **Elfsight pricing table** (`services`) |
-| `realisaties.html` | De echte **Elfsight portfolio-widget** (`portfolio`) + eigen video-showcase en merkstickers als aanvulling |
+| `index.html` | Home — transparante header over de hero (wordt ondoorzichtig bij scrollen), 3 services, video + jumbo tekst, contact-CTA, "Waarom Baristamigo", "Powered by Matubu", WhatsApp-widget |
+| `services.html` | 4 pakket-kaarten (Barista's & Personeel, Mobiele Koffiebar "Best seller", Perculators & Koffiemachines, Coffee Cocktails) met vinklijstjes — tekst 1-op-1 overgenomen uit een screenshot van de live Elfsight pricing table |
+| `realisaties.html` | De echte **Elfsight portfolio-widget** (`portfolio`) direct na de intro + eigen video-showcase en merkstickers als aanvulling |
 | `contact.html` | Contactformulier + WhatsApp-widget |
 
 Alle pagina's delen dezelfde nav, footer, newsletter-blok, het "Offerte aanvragen"-modalvenster (2-staps formulier) én de **Elfsight WhatsApp-chatwidget** (rechtsonder, naast de offerte-knop). Foto's en video's zijn hotlinks naar de echte Shopify CDN van `baristamigo.be` (geen lokale kopie nodig, altijd actueel).
+
+## Pakket-kaarten op services.html
+
+De Elfsight pricing table zelf ((`4ec95a9d-...`) is JS-gerenderd en dus niet met `curl`/WebFetch uit te lezen. De gebruiker stuurde een screenshot van hoe die er live uitziet (4 kaarten met foto, titel, "Boek nu"-knop en vinklijst) en vroeg die exact na te bouwen omdat het "eruitziet alsof je pakketten verkoopt" — dat is bewust gekozen boven de eerdere lange dienst-beschrijvingen. De koppen en vinklijst-teksten zijn letterlijk overgenomen uit die screenshot (dus echte tekst, niet verzonnen); de kaartfoto's zijn de bestaande echte Baristamigo-CDN-afbeeldingen (`ChatGPT_Image_...`, `perculators.png`, `Sticker_Cocktail_Icoon.png`) omdat de exacte foto's uit de screenshot niet als URL beschikbaar zijn — dus qua foto geen 1-op-1 match, qua tekst wel. De losse Elfsight pricing-widget-embed is hierdoor van deze pagina verwijderd (zou dubbele/conflicterende content geven).
+
+## Transparante header op de homepage
+
+Op verzoek moest de hero pixel-exact matchen met een screenshot van de live site: header transparant en met cream tekst/iconen bovenop de foto, geen klein logo zichtbaar, tot je voorbij de hero scrolt — dan wordt de header een gewone vaste crème balk met logo (zoals op de andere pagina's). Dit is `body.page-home` in `assets/style.css` + een kleine scroll-listener in `assets/script.js` die de klasse `is-scrolled` toevoegt zodra je voorbij `.hero` scrolt. Alleen `index.html` heeft de `page-home`-klasse; de andere 3 pagina's hebben altijd de gewone vaste crème header.
 
 ## Proporties homepage — herleid uit de echte broncode
 
@@ -52,7 +60,7 @@ De live site gebruikt geen eigen portfolio-/prijzenpagina maar embedt Elfsight-w
 **Verbeteringen t.o.v. de eerste versie / t.o.v. de live site:**
 - Echte site typt "Mobile coffee carts & esma stands" (waarschijnlijk een typfout) — hier gecorrigeerd naar "espresso stands".
 - Live site heeft wel een werkend hamburgermenu op mobiel; de eerste versie hier verstopte de nav-links op mobiel zonder alternatief. Nu opgelost met een echte hamburger-toggle (`.nav-toggle` in `assets/script.js`).
-- Account-/winkelwagen-iconen uit de Shopify-header zijn weggelaten: deze statische site heeft geen login/winkelwagen-backend, dus niet-functionele iconen tonen zou misleidend zijn.
+- Account-/winkelwagen-iconen waren aanvankelijk weggelaten (niet-functioneel op een statische site), maar zijn op vraag van de gebruiker terug toegevoegd (`aria-hidden="true"`, puur decoratief) omdat de homepage pixel-exact een screenshot van de live header moest volgen.
 - CSS/JS is uit de 4 losse pagina's gehaald naar `assets/`, zodat een wijziging (bv. kleur, lettertype-pad) nog maar op één plek moet gebeuren.
 - `services.html` en `realisaties.html` bestaan zo op de live site wel qua URL, maar zijn daar (voor zover met een gewone fetch te zien) nog leeg/placeholder — de inhoud hier is dus nieuw geschreven, geen bestaande tekst overgenomen.
 
