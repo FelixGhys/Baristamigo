@@ -710,3 +710,106 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   .contact-cta-section { justify-content: center; border-radius: 28px; background-size: cover; }
   .contact-cta-section .contact-form { width: 100%; }
 }
+
+/* ───────── SEO / TOEGANKELIJKHEID: UTILITIES ───────── */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ───────── BREADCRUMB ───────── */
+.breadcrumb {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 5% 0;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-weight: 700;
+  color: var(--maroon);
+  opacity: .7;
+}
+
+.breadcrumb a { text-decoration: underline; }
+.breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; }
+.breadcrumb li:not(:last-child)::after { content: "/"; margin-left: 6px; opacity: .6; }
+
+/* ───────── USP-LIJST ───────── */
+.usp-section { padding: clamp(30px, 5vw, 60px) 5%; max-width: 1000px; margin: 0 auto; }
+.usp-section h2 { font-family: var(--font-title); font-weight: 400; text-transform: uppercase; font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 20px; }
+
+.usp-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+}
+
+.usp-list li { display: flex; gap: 12px; align-items: flex-start; }
+.usp-list li::before { content: "✓"; color: var(--orange); font-weight: 700; flex: 0 0 auto; }
+
+@media (max-width: 700px) { .usp-list { grid-template-columns: 1fr; } }
+
+/* ───────── MINI-FAQ OP DIENSTPAGINA'S ───────── */
+.faq-section { background: var(--cream-2); padding: clamp(30px, 5vw, 60px) 5%; }
+.faq-section .inner { max-width: 900px; margin: 0 auto; }
+.faq-section h2 { font-family: var(--font-title); font-weight: 400; text-transform: uppercase; font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 20px; }
+
+.faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+.faq-item h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.faq-item p { opacity: .9; }
+
+/* ───────── GERELATEERDE PAGINA'S ───────── */
+.related-links { padding: clamp(30px, 5vw, 60px) 5%; max-width: 1000px; margin: 0 auto; }
+.related-links h2 { font-family: var(--font-title); font-weight: 400; text-transform: uppercase; font-size: 1.2rem; margin-bottom: 16px; }
+.related-links ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+.related-links a {
+  display: inline-flex;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: .85rem;
+}
+.related-links a:hover { background: var(--cream-2); }
+
+/* ───────── SITE-FOOTER MET NAP-GEGEVENS ───────── */
+.site-footer { background: var(--cream-2); border-top: 1px solid var(--border); }
+
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 64px) 5%;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 32px;
+}
+
+.footer-col h2 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: .95rem;
+  margin-bottom: 14px;
+}
+
+.footer-col img { height: 30px; margin-bottom: 12px; }
+.footer-col p { font-size: .85rem; opacity: .85; max-width: 32ch; }
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: .85rem; opacity: .85; }
+.footer-col a:hover { opacity: 1; text-decoration: underline; }
+
+.footer-col address { font-size: .85rem; font-style: normal; line-height: 1.7; opacity: .9; }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 550px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
