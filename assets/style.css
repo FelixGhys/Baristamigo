@@ -242,7 +242,7 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
   align-items: stretch;
 }
 
-.media-content.compact { height: 42svh; }
+.media-content.compact { height: 50svh; }
 .media-content.compact .content { padding: clamp(20px, 3vw, 40px); }
 .media-content.compact .jumbo-text { font-size: clamp(1.3rem, 2.6vw, 2.1rem); }
 
