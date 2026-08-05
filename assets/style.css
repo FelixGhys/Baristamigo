@@ -711,6 +711,9 @@ header {
   .jumbo-text { text-align: left; }
   .contact-cta-section { justify-content: center; border-radius: 28px; background-image: none; background-color: var(--cream); }
   .contact-cta-section .contact-form { width: 100%; }
+
+  /* WhatsApp-widget niet nodig op mobiel */
+  .elfsight-app-ae0fd06d-759a-407e-ab45-b056ee390d64 { display: none !important; }
 }
 
 /* ───────── SEO / TOEGANKELIJKHEID: UTILITIES ───────── */
