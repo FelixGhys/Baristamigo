@@ -438,7 +438,7 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   align-items: center;
   justify-content: center;
 }
-.package-card__image img { width: 65%; height: 65%; object-fit: contain; }
+.package-card__image img { width: 100%; height: 100%; object-fit: cover; }
 
 .package-card h2 {
   font-family: var(--font-title);
