@@ -97,3 +97,9 @@ Alles wat overbleef na het identificeren van de bovenstaande echte bestanden: 16
 ## Gekend probleem: logo-verhouding
 
 Het Baristamigo-wordmark (`Baristamigo_Logo_Bruin.png` / `_Geel.png`, verhouding 5377:701) werd op meerdere plekken (hero, header, footer, offerte-modal) uitgerekt zodra CSS maar één dimensie (`width` of `height`) zette zonder de andere. De HTML `width`/`height`-attributen bleken dit niet altijd correct te compenseren in de browser van de gebruiker. **Fix:** overal waar dit logo gebruikt wordt, expliciet `aspect-ratio: 5377 / 701;` + `object-fit: contain;` toevoegen aan de CSS-regel, niet enkel op de HTML-attributen vertrouwen. Nieuwe plekken waar dit logo gebruikt wordt, moeten dezelfde behandeling krijgen.
+
+De favicon (`merk/logos/Baristamigo_Element_Bruin.png`, portret 435×688) had hetzelfde soort probleem — browsers persen een niet-vierkante favicon altijd in een vierkant tabblad-icoon. **Fix:** `merk/logos/Baristamigo_Favicon.png` aangemaakt (512×512, B-element gecentreerd op transparante achtergrond via .NET System.Drawing in PowerShell, want er is geen ImageMagick/Python-tool in deze omgeving) en overal als favicon ingesteld i.p.v. het originele portretbeeld.
+
+## Stockfoto op services.html (percolators-kaart)
+
+Voor de "Perculators & koffiemachines"-kaart was geen echte Baristamigo-foto beschikbaar. Op vraag van de gebruiker gezocht naar een rechtenvrije foto (Pixabay, "Pixabay License" — gratis voor commercieel gebruik, geen attributie verplicht): `https://cdn.pixabay.com/photo/2025/04/22/15/39/coffee-machine-9550534_1280.jpg` (een volautomatische koffiemachine). Dit is de **enige niet-Baristamigo-foto** op de site — vervang door een echte productfoto zodra die beschikbaar is.
