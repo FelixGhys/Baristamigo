@@ -543,7 +543,7 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
   gap: clamp(20px, 4vw, 48px);
   flex-wrap: wrap;
   padding: clamp(10px, 3vw, 30px) 5% clamp(50px, 8vw, 90px);
-  background: var(--cream-2);
+  background: var(--cream);
 }
 
 .sticker-showcase img { width: clamp(120px, 16vw, 180px); height: clamp(120px, 16vw, 180px); }
