@@ -738,6 +738,27 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
 
 @media (max-width: 700px) { .usp-list { grid-template-columns: 1fr; } }
 
+/* ───────── WERKGEBIED / STEDENLIJST ───────── */
+.area-section { padding: clamp(30px, 5vw, 60px) 5%; max-width: 900px; margin: 0 auto; text-align: center; }
+.area-section h2 { font-family: var(--font-title); font-weight: 400; text-transform: uppercase; font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 12px; }
+.area-section > p { max-width: 60ch; margin: 0 auto 24px; opacity: .9; }
+
+.city-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.city-list li {
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
 /* ───────── MINI-FAQ OP DIENSTPAGINA'S ───────── */
 .faq-section { background: var(--cream-2); padding: clamp(30px, 5vw, 60px) 5%; }
 .faq-section .inner { max-width: 900px; margin: 0 auto; }
