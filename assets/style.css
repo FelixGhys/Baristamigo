@@ -709,7 +709,7 @@ header {
   .media-content.compact { height: auto; }
   .media-content.compact .media { min-height: 160px; }
   .jumbo-text { text-align: left; }
-  .contact-cta-section { justify-content: center; border-radius: 28px; background-size: cover; }
+  .contact-cta-section { justify-content: center; border-radius: 28px; background-image: none; background-color: var(--cream); }
   .contact-cta-section .contact-form { width: 100%; }
 }
 
