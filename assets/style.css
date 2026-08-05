@@ -185,37 +185,39 @@ header {
   object-fit: contain;
 }
 
-/* ───────── TRANSPARANTE HEADER OVER DE HERO (home) ───────── */
-body.page-home header {
-  position: absolute;
-  inset: 0 0 auto 0;
-  background: transparent;
-  border-bottom: none;
-  transition: background .25s ease, border-color .25s ease;
-}
+/* ───────── TRANSPARANTE HEADER OVER DE HERO (home, enkel desktop) ─────────
+   Op mobiel is deze absolute/fixed-wissel via JS onbetrouwbaar (100svh
+   verandert voortdurend door de adresbalk tijdens scroll), dat gaf een
+   haperende/overlappende header. Op mobiel blijft de header daarom gewoon
+   een effen sticky balk, net als op de andere pagina's. */
+@media (min-width: 751px) {
+  body.page-home header {
+    position: absolute;
+    inset: 0 0 auto 0;
+    background: transparent;
+    border-bottom: none;
+    transition: background .25s ease, border-color .25s ease;
+  }
 
-body.page-home header.is-scrolled {
-  position: fixed;
-  background: var(--cream);
-  border-bottom: 1px solid rgba(0,0,0,.05);
-}
+  body.page-home header.is-scrolled {
+    position: fixed;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(0,0,0,.05);
+  }
 
-body.page-home header .header-logo { visibility: hidden; }
-body.page-home header.is-scrolled .header-logo { visibility: visible; }
+  body.page-home header .header-logo { visibility: hidden; }
+  body.page-home header.is-scrolled .header-logo { visibility: visible; }
 
-body.page-home header:not(.is-scrolled) .nav-links a {
-  color: var(--yellow);
-  font-family: var(--font-title);
-  font-weight: 700;
-  letter-spacing: 0;
-}
-body.page-home header.is-scrolled .nav-links a { color: var(--maroon); }
+  body.page-home header:not(.is-scrolled) .nav-links a {
+    color: var(--yellow);
+    font-family: var(--font-title);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  body.page-home header.is-scrolled .nav-links a { color: var(--maroon); }
 
-body.page-home header .nav-toggle span { background: var(--yellow); }
-body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
-
-@media (max-width: 750px) {
-  body.page-home header:not(.is-scrolled) .nav-links.open { background: var(--dark-brown); }
+  body.page-home header .nav-toggle span { background: var(--yellow); }
+  body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
 }
 
 /* ───────── SERVICES ROW (home) ───────── */
@@ -593,6 +595,17 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
 }
 
 .quote-float svg { width: 18px; height: 18px; fill: #fff; }
+
+@media (max-width: 750px) {
+  /* Rechtsonder is bezet door de WhatsApp-widget: hier botsten beide knoppen op elkaar */
+  .quote-float {
+    right: auto;
+    left: 16px;
+    bottom: 16px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
 
 /* ───────── QUOTE MODAL ───────── */
 .quote-modal-backdrop {
