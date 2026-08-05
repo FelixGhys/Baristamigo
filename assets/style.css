@@ -85,9 +85,6 @@ header {
 
 .nav-links a.active, .nav-links a:hover { opacity: 1; }
 
-.header__icons { display: flex; align-items: center; gap: 18px; }
-.header__icons svg { width: 20px; height: 20px; stroke: var(--maroon); transition: stroke .2s; }
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -151,7 +148,7 @@ header {
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
-  padding: 0 5% clamp(30px, 5vw, 56px);
+  padding: 0 5% clamp(12px, 2.5vw, 28px);
   opacity: .9;
 }
 
@@ -212,9 +209,6 @@ body.page-home header.is-scrolled .nav-links a { color: var(--maroon); }
 
 body.page-home header .nav-toggle span { background: var(--yellow); }
 body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
-
-body.page-home header .header__icons svg { stroke: var(--yellow); }
-body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
 
 @media (max-width: 750px) {
   body.page-home header:not(.is-scrolled) .nav-links.open { background: var(--dark-brown); }
@@ -526,7 +520,7 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   font-weight: 400;
   text-transform: uppercase;
   font-size: clamp(1.3rem, 2.6vw, 1.8rem);
-  padding: clamp(40px, 6vw, 64px) 5% 24px;
+  padding: clamp(16px, 3vw, 28px) 5% 16px;
 }
 
 .video-grid {
@@ -555,21 +549,6 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
 .sticker-showcase img { width: clamp(120px, 16vw, 180px); height: clamp(120px, 16vw, 180px); }
 
 /* ───────── FOOTER ───────── */
-.newsletter {
-  padding: clamp(40px, 6vw, 70px) 5%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: center;
-}
-
-.newsletter h2 { font-size: 1.4rem; font-weight: 400; font-family: var(--font-title); margin-bottom: 6px; }
-
-.newsletter form { display: flex; border: 1px solid var(--border); border-radius: 100px; overflow: hidden; }
-.newsletter input { flex: 1; border: none; padding: 14px 20px; font-family: inherit; background: transparent; color: var(--maroon); }
-.newsletter input:focus { outline: none; }
-.newsletter button { border: none; background: var(--orange); color: #fff; padding: 0 28px; font-weight: 600; }
-
 .footer-utilities {
   background: var(--cream);
   border-top: 1px solid var(--border);
@@ -589,8 +568,6 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
 
 .footer-utilities a { text-decoration: underline; }
 
-@media (max-width: 700px) { .newsletter { grid-template-columns: 1fr; } }
-
 /* ───────── FLOATING QUOTE BUTTON ───────── */
 .quote-float {
   position: fixed;
@@ -602,8 +579,9 @@ body.page-home header.is-scrolled .header__icons svg { stroke: var(--maroon); }
   border: none;
   border-radius: 32px;
   padding: 14px 24px;
+  font-family: var(--font-title);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   gap: 10px;
