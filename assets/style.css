@@ -89,16 +89,20 @@ header {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
   border: none;
   background: none;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .nav-toggle span {
   display: block;
+  width: 24px;
   height: 2px;
   background: var(--maroon);
   border-radius: 2px;
@@ -471,7 +475,7 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
   gap: 10px;
   align-items: flex-start;
   text-transform: uppercase;
-  font-size: .72rem;
+  font-size: .8rem;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -599,7 +603,7 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
   display: none;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px 20px;
+  padding: clamp(16px, 5vw, 40px) 16px;
   overflow-y: auto;
 }
 
@@ -610,7 +614,7 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
   border-radius: 16px;
   max-width: 520px;
   width: 100%;
-  padding: 44px 40px;
+  padding: clamp(24px, 6vw, 44px) clamp(18px, 5vw, 40px);
   position: relative;
 }
 
@@ -658,6 +662,10 @@ body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); 
 .quote-modal__field textarea { min-height: 70px; resize: vertical; }
 
 .quote-modal__checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+
+@media (max-width: 420px) {
+  .quote-modal__checkbox-grid { grid-template-columns: 1fr; }
+}
 .quote-modal__checkbox-item { display: flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 400; }
 .quote-modal__checkbox-item input { width: auto; }
 
