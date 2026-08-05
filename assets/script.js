@@ -32,8 +32,15 @@ function goToQuoteStep(step) {
   });
 }
 
-function submitQuoteForm() {
-  goToQuoteStep('success');
+// Netlify Forms: verstuurt een formulier via AJAX zodat de pagina niet herlaadt
+function submitNetlifyForm(form, callback) {
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(form)).toString()
+  })
+    .then(function () { callback(true); })
+    .catch(function () { callback(false); });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -43,6 +50,44 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.target === this) closeQuoteModal();
     });
   }
+
+  // Offerte-formulier (2-staps modal)
+  var quoteForm = document.getElementById('quoteForm');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var activeStep = quoteForm.querySelector('.quote-modal__step.active');
+      if (activeStep && activeStep.dataset.step === '1') {
+        goToQuoteStep(2);
+        return;
+      }
+      submitNetlifyForm(quoteForm, function (ok) {
+        if (ok) {
+          quoteForm.reset();
+          goToQuoteStep('success');
+        } else {
+          alert('Er ging iets mis bij het verzenden. Probeer het opnieuw of mail naar info@matubu.be.');
+        }
+      });
+    });
+  }
+
+  // Contactformulieren (homepage + contactpagina)
+  document.querySelectorAll('.contact-form').forEach(function (form) {
+    var successEl = form.parentElement.querySelector('.contact-form__success');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitNetlifyForm(form, function (ok) {
+        if (ok) {
+          form.reset();
+          form.hidden = true;
+          if (successEl) successEl.hidden = false;
+        } else {
+          alert('Er ging iets mis bij het verzenden. Probeer het opnieuw of mail naar info@matubu.be.');
+        }
+      });
+    });
+  });
 });
 
 // Transparante header wordt ondoorzichtig zodra de hero uit beeld scrolt

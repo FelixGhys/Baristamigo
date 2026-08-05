@@ -399,6 +399,17 @@ header {
 
 .contact-section .contact-form button[type="submit"]:hover { background: var(--maroon); }
 
+.contact-form__success { text-align: center; }
+.contact-cta-section .contact-form__success { width: 49%; }
+.contact-section .contact-form__success {
+  width: min(100%, 560px);
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(42,7,2,.08);
+  padding: clamp(30px, 5vw, 48px);
+  border-radius: 28px;
+}
+
 /* ───────── SERVICES PAGE — PAKKETTEN ───────── */
 .package-grid {
   display: grid;
