@@ -417,7 +417,16 @@ header {
 
 .founders-photo { border-radius: 20px; margin-top: 20px; }
 
-.contact-form__success { text-align: center; }
+.contact-form { transition: opacity .3s ease; }
+.contact-form.is-submitting { opacity: 0; }
+
+.contact-form__success {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.contact-form__success.is-visible { opacity: 1; transform: translateY(0); }
 .contact-cta-section .contact-form__success { width: 49%; }
 .contact-section .contact-form__success {
   width: min(100%, 560px);

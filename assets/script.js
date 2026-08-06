@@ -77,12 +77,21 @@ document.addEventListener('DOMContentLoaded', function () {
     var successEl = form.parentElement.querySelector('.contact-form__success');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      form.classList.add('is-submitting');
       submitNetlifyForm(form, function (ok) {
         if (ok) {
           form.reset();
-          form.hidden = true;
-          if (successEl) successEl.hidden = false;
+          // display:none via inline style, want .contact-form heeft elders
+          // een class-based `display: flex` die zwaarder weegt dan [hidden]
+          form.style.display = 'none';
+          if (successEl) {
+            successEl.hidden = false;
+            requestAnimationFrame(function () {
+              successEl.classList.add('is-visible');
+            });
+          }
         } else {
+          form.classList.remove('is-submitting');
           alert('Er ging iets mis bij het verzenden. Probeer het opnieuw of mail naar info@matubu.be.');
         }
       });
