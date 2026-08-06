@@ -218,7 +218,9 @@ header {
   body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
 
   body.page-home .header__row {
-    padding-left: 24px;
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
   }
 
   body.page-home .nav-links {
