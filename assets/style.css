@@ -220,7 +220,7 @@ header {
   body.page-home .header__row {
     max-width: none;
     margin: 0;
-    padding-left: 0;
+    padding-left: 20px;
   }
 
   body.page-home .nav-links {
