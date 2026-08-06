@@ -203,8 +203,8 @@ header {
     border-bottom: 1px solid rgba(0,0,0,.05);
   }
 
-  body.page-home header .header-logo { visibility: hidden; }
-  body.page-home header.is-scrolled .header-logo { visibility: visible; }
+  body.page-home header .header-logo { display: none; }
+  body.page-home header.is-scrolled .header-logo { display: block; }
 
   body.page-home header:not(.is-scrolled) .nav-links a {
     color: var(--yellow);
