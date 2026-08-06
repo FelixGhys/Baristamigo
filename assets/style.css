@@ -216,6 +216,16 @@ header {
 
   body.page-home header .nav-toggle span { background: var(--yellow); }
   body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
+
+  body.page-home .nav-links {
+    margin: 0;
+    transform: none;
+    gap: 44px;
+  }
+
+  body.page-home .nav-links a {
+    font-size: 1.6rem;
+  }
 }
 
 /* ───────── SERVICES ROW (home) ───────── */
