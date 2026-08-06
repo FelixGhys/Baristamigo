@@ -217,6 +217,10 @@ header {
   body.page-home header .nav-toggle span { background: var(--yellow); }
   body.page-home header.is-scrolled .nav-toggle span { background: var(--maroon); }
 
+  body.page-home .header__row {
+    padding-left: 24px;
+  }
+
   body.page-home .nav-links {
     margin: 0;
     transform: none;
