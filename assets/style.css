@@ -335,7 +335,7 @@ header {
 
 /* ───────── CONTACT CTA CARD (home) ───────── */
 .contact-cta-section {
-  background: var(--cream) url("https://baristamigo.be/cdn/shop/files/Element_1_Baristamigo_4.png?v=1765485333&width=1920") left bottom/contain no-repeat;
+  background: var(--cream) url("media/Element_1_Baristamigo_4.png") left bottom/contain no-repeat;
   border-radius: 52px;
   overflow: hidden;
   margin: 40px 5%;
@@ -398,6 +398,8 @@ header {
 }
 
 .contact-section .contact-form button[type="submit"]:hover { background: var(--maroon); }
+
+.founders-photo { border-radius: 20px; margin-top: 20px; }
 
 .contact-form__success { text-align: center; }
 .contact-cta-section .contact-form__success { width: 49%; }
